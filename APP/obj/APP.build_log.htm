@@ -1,0 +1,90 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: £gVision V5.28.0.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: chou timmy, giga, LIC=50DRA-1NG86-ZB4EA-1L6X8-41UV9-AGPG7
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.28.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.28.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
+Dialog DLL:      TCM.DLL V1.36.2.0
+ 
+<h2>Project:</h2>
+C:\Users\cody\Desktop\APP_ISP_JUMP\20240314\APP_ISP_test\APP.uvprojx
+Project File Date:  03/14/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild Project 'APP' - Target 'APP'
+compiling ISP.c...
+compiling IVT_Test.c...
+assembling ISP_bin.s...
+assembling ISP2_bin.s...
+assembling startup_stm32f207xx_app.s...
+compiling main.c...
+compiling system_stm32f2xx_app.c...
+compiling System_config.c...
+compiling stm32f2xx_hal.c...
+compiling stm32f2xx_hal_cortex.c...
+compiling retarget_io.c...
+compiling stm32f2xx_hal_gpio.c...
+compiling stm32f2xx_hal_rcc.c...
+linking...
+Program Size: Code=13076 RO-data=420 RW-data=8 ZI-data=1024  
+After Build - User command #1: fromelf.exe --bin -o   ./APP/obj/APP_part.bin ./APP/obj/APP.axf
+After Build - User command #2: fromelf.exe --bin --bincombined --bincombined_padding=0,0xff --output ./APP/obj/APP.bin  .\APP\obj\APP.axf
+".\APP\obj\APP.axf" - 0 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.5.1.pack
+                ARM.CMSIS.5.5.1
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.2.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.ARM_Compiler.1.7.2.pack
+                Keil.ARM_Compiler.1.7.2
+                Keil ARM Compiler extensions for ARM Compiler 5 and ARM Compiler 6
+   * Component: STDERR Variant: ITM Version: 1.2.0
+   * Component: STDIN Variant: ITM Version: 1.2.0
+   * Component: STDOUT Variant: ITM Version: 1.2.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F2xx_DFP.2.10.0.pack
+                Keil.STM32F2xx_DFP.2.10.0
+                STMicroelectronics STM32F2 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_APP
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.5.1\CMSIS\Core\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F2xx_DFP\2.10.0\Drivers\CMSIS\Device\ST\STM32F2xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.2.0
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDERR:ITM:1.2.0
+      Source file:   Source\retarget_io.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDIN:ITM:1.2.0
+      Source file:   Source\retarget_io.c
+
+   * Component: Keil.ARM Compiler::Compiler:I/O:STDOUT:ITM:1.2.0
+      Source file:   Source\retarget_io.c
+Build Time Elapsed:  00:00:11
+</pre>
+</body>
+</html>

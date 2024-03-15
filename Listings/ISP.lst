@@ -1,0 +1,39 @@
+L 1 "ISP\Src\ISP.c"
+N#include "ISP.h"
+L 1 "ISP\Src\ISP.h" 1
+N#if (!defined(ISP_H_FILE_DEFINED))
+X#if (!0L)
+N#define ISP_H_FILE_DEFINED
+N
+N#define ISP_IVT_POINTER_ADDRESS                         (0x8000000)
+N#define APP_IVT_POINTER_ADDRESS                         (0x800C000)
+N#define ISP_HANDLER_POINTER_ADDRESS                     (0x8002000)
+Ntypedef void (*PFISPHandler)(void);
+N
+Nvoid ISP_GoToResetHandler(unsigned long ulIVTAddress);
+N
+Ntypedef struct
+N{
+N    const unsigned long CPUID;                      // Offset: 0x000 (R/ )  CPUID Base Register
+N    volatile unsigned long ICSR;                    // Offset: 0x004 (R/W)  Interrupt Control and State Register
+N    volatile unsigned long VTOR;                    // Offset: 0x008 (R/W)  Vector Table Offset Register
+N    volatile unsigned long AIRCR;                   // Offset: 0x00C (R/W)  Application Interrupt and Reset Control Register
+N    volatile unsigned long SCR;                     // Offset: 0x010 (R/W)  System Control Register
+N    volatile unsigned long CCR;                     // Offset: 0x014 (R/W)  Configuration Control Register
+N    unsigned long RESERVED1;
+N    volatile unsigned long SHP[2];                  // Offset: 0x01C (R/W)  System Handlers Priority Registers. [0] is RESERVED
+N    volatile unsigned long SHCSR;                   // Offset: 0x024 (R/W)  System Handler Control and State Register
+N} NVIC_SCB_Type_t;
+N#define NVIC_SetVectorTable(MEM_ADDRESS)            ((NVIC_SCB_Type_t*)(0xE000E000UL+0x0D00UL))->VTOR=(MEM_ADDRESS & (unsigned long)(~0x7F));
+N#define NVIC_GetVectorTable()                       (((NVIC_SCB_Type_t*)(0xE000E000UL+0x0D00UL))->VTOR)
+N
+N#endif //#if (!defined(ISP_H_FILE_DEFINED))
+L 2 "ISP\Src\ISP.c" 2
+N
+N__asm void ISP_GoToResetHandler(unsigned long ulIVTAddress)
+N{
+N    LDR R1, [R0]
+N    MOV SP, R1
+N    LDR R0, [R0, #4]
+N    BLX R0
+N}

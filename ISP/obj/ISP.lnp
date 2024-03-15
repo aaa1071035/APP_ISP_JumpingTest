@@ -1,0 +1,17 @@
+--cpu Cortex-M3
+".\isp\obj\main.o"
+".\isp\obj\isp.o"
+".\isp\obj\system_config.o"
+".\isp\obj\ivt_test.o"
+".\isp\obj\app_bin.o"
+".\isp\obj\startup_stm32f207xx_isp.o"
+".\isp\obj\system_stm32f2xx_isp.o"
+".\isp\obj\stm32f2xx_hal.o"
+".\isp\obj\stm32f2xx_hal_cortex.o"
+".\isp\obj\stm32f2xx_hal_gpio.o"
+".\isp\obj\stm32f2xx_hal_rcc.o"
+".\isp\obj\retarget_io.o"
+--strict --scatter ".\ISP\obj\ISP.sct"
+--entry Reset_Handler --keep=APP_bin.o --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\ISP.map" -o .\ISP\obj\ISP.axf

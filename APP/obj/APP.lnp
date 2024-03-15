@@ -1,0 +1,18 @@
+--cpu Cortex-M3
+".\app\obj\main.o"
+".\app\obj\isp.o"
+".\app\obj\system_config.o"
+".\app\obj\ivt_test.o"
+".\app\obj\isp_bin.o"
+".\app\obj\isp2_bin.o"
+".\app\obj\startup_stm32f207xx_app.o"
+".\app\obj\system_stm32f2xx_app.o"
+".\app\obj\stm32f2xx_hal.o"
+".\app\obj\stm32f2xx_hal_cortex.o"
+".\app\obj\stm32f2xx_hal_gpio.o"
+".\app\obj\stm32f2xx_hal_rcc.o"
+".\app\obj\retarget_io.o"
+--library_type=microlib --strict --scatter ".\APP\obj\APP.sct"
+--entry Reset_Handler --keep=ISP_bin.o --keep=ISP2_bin.o --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\APP.map" -o .\APP\obj\APP.axf

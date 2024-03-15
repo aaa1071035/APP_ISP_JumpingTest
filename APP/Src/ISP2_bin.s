@@ -1,0 +1,5 @@
+    AREA    ISP_IROM2, CODE, READONLY
+
+    INCBIN  ISP\obj\ISP_part.bin\ISP_ER_IROM2
+
+    END
